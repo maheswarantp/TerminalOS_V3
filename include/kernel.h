@@ -9,14 +9,14 @@
 #include <lib/string.h>
 
 // GDT
-// #include <cpu/gdt.h>
+#include <cpu/gdt.h>
 
 // IDT
-// #include <cpu/idt.h>
-// #include <cpu/isr.h>
+#include <cpu/idt.h>
+#include <cpu/isr.h>
 
 // TIMER
-// #include <drivers/timer.h>
+#include <drivers/timer.h>
 
 // HDD
 // #include <drivers/hdd.h>
