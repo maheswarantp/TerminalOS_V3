@@ -18,6 +18,9 @@
 // TIMER
 #include <drivers/timer.h>
 
+// KEYBOARD
+#include <drivers/keyboard.h>
+
 // HDD
 // #include <drivers/hdd.h>
 
