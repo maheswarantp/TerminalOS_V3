@@ -52,6 +52,7 @@
 - FAT-12 readonly filesystem    (Partially functional)
 - GRUB as bootloader
 - TTY Text mode based interface
+- PIT Timer with sleep system
 
 ![filesystem image](assets/image.jpeg)
 ![irq0 timer](assets/image_2.jpeg)

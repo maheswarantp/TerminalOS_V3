@@ -2,18 +2,17 @@
 
 int main()
 {
-    clear_screen();
+    clear_screen();    
 
-    printf("Hello World!!");
-    printf("\n\n\n\n");
-    printf("Testing decimal integers....\n");
-    for(int i = 0; i < 10; i++)
-        printf("%d ", i);
-    printf("\nTesting hexa-decimal integers....\n");
-    for(int i = 0; i < 0xf; i++)
-        printf("%x ", i);
-    printf("\nTesting Complete....\n");
-    
-    
+    init_gdt();
+    isr_install();
+
+    asm volatile("sti");
+    init_timer(1);
+    printf("Sleep test start\n");
+    sleep(1000);
+    printf("Sleep test end");
+
+
     return 0;
 }
