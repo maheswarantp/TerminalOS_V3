@@ -17,12 +17,10 @@ uint32_t getTime()
 
 void sleep(uint32_t time)
 {
+    __asm__ __volatile__("sti");
+    init_timer(1000);
     uint32_t up1 = getTime();
-    while(getTime() - up1 <= time)
-    {
-        // printf("");
-        // printf("Time is: %x\n", getTime());
-    }
+    while(getTime() - up1 <= time);
 }
 
 

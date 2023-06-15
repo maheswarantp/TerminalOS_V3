@@ -19,4 +19,11 @@
 // Timer
 #include <drivers/timer.h>
 
+// Speaker
+#include <drivers/speaker.h>
+
+// Tests
+#include <tests/test_timer.h>
+#include <tests/test_speaker.h>
+
 #endif

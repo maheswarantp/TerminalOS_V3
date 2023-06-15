@@ -8,9 +8,9 @@ int main()
     init_gdt();
     initialize_isr();
 
-    __asm__ __volatile__("sti");
-    init_timer(1000);
-    printf("Hello World!!!\n");
-    sleep(5000);
-    printf("Bie World!!!\n");
+    // Test timer
+    test_timer();
+
+    // Test speaker
+    test_speaker(3000);
 }

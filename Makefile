@@ -33,7 +33,7 @@ update_disk: kernel.elf
 	bash ./updatedisk.sh
 
 run: update_disk
-	qemu-system-i386 -hda disk.img
+	qemu-system-i386 -hda disk.img -soundhw pcspk
 
 all: run FORCE
 
