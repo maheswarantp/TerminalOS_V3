@@ -1,0 +1,17 @@
+*.o
+*/*.o
+*/*/*.o
+*/*/*/*.o
+
+*.elf
+*/*.elf
+*/*/*.elf
+*/*/*/*.elf
+
+*.img
+
+mnt/
+build/ 
+debug/ 
+
+.vscode
