@@ -138,12 +138,6 @@ void initialize_isr() {
 
 void isr_handler(registers_t *r) {
     printf("Recived Interrupt: %x \n", r->interrupt);
-
-
-    // kprint("\nReceived interrupt!:");
-    // char s[3];
-    // i_to_a(r->interrupt, s);
-    // kprint(s);
 }
 
 
@@ -162,9 +156,4 @@ void irq_handler(registers_t *r) {
         isr_t handler = interrupt_handlers[r->interrupt];
         handler(*r);
     }
-
-
-    // if (handler != 0) {
-    //     handler(r);
-    // }
 }

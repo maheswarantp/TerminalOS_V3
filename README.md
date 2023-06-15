@@ -34,10 +34,16 @@
 - [x] Build process has to be run twice for kernel changes to take effect, no idea why
 - [ ] FAT Filesystem code can access only the first block of data from disk for now, fix to be issued later.
 
+# Note:
+- Default RAM Size given to qemu is 10 Megs
+
+
+
 # Features:
 - [x] 32 bit protected mode operation
 - [x] FAT-12 readonly filesystem
 - [x] GRUB as bootloader
+- [x] Speaker Driver
 - [x] TTY Text mode based interface
 - [ ] POSIX compiliance         (maybe?)
 

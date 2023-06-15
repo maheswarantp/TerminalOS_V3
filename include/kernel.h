@@ -1,6 +1,9 @@
 #ifndef __KERNEL__
 #define __KERNEL__
 
+// Multiboot
+#include <multiboot.h>
+
 // VGA BUFFER
 #include <drivers/screen.h>
 
@@ -21,6 +24,16 @@
 
 // Speaker
 #include <drivers/speaker.h>
+
+// Keyboard
+#include <drivers/keyboard.h>
+
+// HDD
+#include <drivers/hdd.h>
+
+
+// Paging
+#include <mem/paging.h>
 
 // Tests
 #include <tests/test_timer.h>
