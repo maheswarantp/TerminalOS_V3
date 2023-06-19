@@ -55,27 +55,19 @@ int main(multiboot_info_t* mbd, uint32_t magic)
     asm volatile("sti");
     init_timer(1000);
 
-    // init_keyboard();
+    init_keyboard();
 
 
-    // HDD
-    uint8_t sector[256];
-    read_sectors(sector, 2048, 1);
-
-    // printf("%x ", sector[0]);
-    // printf("%x ", sector[1]);
-    // printf("%x ", sector[2]);
-    // printf("%x ", sector[3]);
-    // printf("%x ", sector[4]);
-    // printf("%x ", sector[5]);
-    // printf("%x ", sector[6]);
-    // printf("%x ", sector[254]);
-
-    for(uint8_t i = 0; i < 200; i++)
-        printf("%x ", sector[i]);
-
-
-
+    // Set and Unset bits
+    // int i = 0x0000;
+    // print_binary(i);
+    // printf("\n");
+    // i = setBit(i, 13);
+    // print_binary(i);
+    // printf("\n");
+    // i = unsetBit(i, 13);
+    // print_binary(i);
+    // printf("\n");
 
     // init_paging();
 
@@ -85,8 +77,6 @@ int main(multiboot_info_t* mbd, uint32_t magic)
     // test_timer();
 
     // Test speaker
-    // test_speaker(3000);
-
-
+    // test_speaker(1000);
 
 }

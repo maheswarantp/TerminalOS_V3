@@ -9,6 +9,7 @@
 
 // String.h
 #include <lib/string.h>
+#include <lib/bit.h>
 
 // GDT
 #include <cpu/gdt.h>

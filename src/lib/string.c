@@ -47,6 +47,20 @@ void itoa(uint8_t* str, int val, int base)
     }
 }
 
+void print_binary(uint32_t val)
+{
+    char string[32] = "00000000000000000000000000000000";
+    int i = __CHAR_BIT__ * sizeof(uint32_t);
+    int count = 0;
+    while(i--)
+    {
+        string[count] = '0' + ((val >> i) & 1);
+        count++;
+    }
+    printf("0b");
+    printf(string);
+}
+
 void printf(const char *str, ...)
 {
 
@@ -84,7 +98,6 @@ void printf(const char *str, ...)
                 switch (str[i+1])
                 {
                 case 'd':
-                    
                     itoa(s, va_arg(valist, int), 10);
                     printf(s);
                     printf("D");
@@ -97,6 +110,8 @@ void printf(const char *str, ...)
                     printf(s);
                     i++;
                     break;
+                case 'b':
+                    continue;
                 default:
                     break;
                 }
