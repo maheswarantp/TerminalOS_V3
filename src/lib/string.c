@@ -14,6 +14,14 @@ int intlen(int val, int base)
     return count;
 }
 
+int strlen(uint8_t s[])
+{
+    int i = 0;
+    while(s[i] != '\0') ++i;
+    return i;
+
+}
+
 boolean strcmp(char* str1, char* str2)
 {
     uint8_t i;
@@ -46,6 +54,18 @@ void itoa(uint8_t* str, int val, int base)
         len--;
     }
 }
+
+void* memset(void* _s, uint32_t _c, uint32_t _n)
+{
+    uint8_t* p = _s;
+    while(_n--)
+    {
+        *p++ = (uint8_t)_c;
+    }
+    return _s;
+}
+
+
 
 void print_binary(uint32_t val)
 {
@@ -120,4 +140,18 @@ void printf(const char *str, ...)
     }
     
     va_end(valist);
+}
+
+
+void backspace(uint8_t s[])
+{
+    int len = strlen(s);
+    s[len - 1] = '\0';
+}
+
+void append(uint8_t s[], uint8_t c)
+{
+    int len = strlen(s);
+    s[len] = c;
+    s[len + 1] = '\0';
 }

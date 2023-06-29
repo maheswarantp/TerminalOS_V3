@@ -4,14 +4,17 @@ void print_memory_map(multiboot_info_t* mbd, uint32_t magic)
 {
     // Multiboot check
     if(magic != MULTIBOOT_BOOTLOADER_MAGIC) {
-        printf("invalid magic number!");
+        printf("invalid magic number!\n");
+        qemu_printf("invalid magic number!\n");
     }
  
     /* Check bit 6 to see if we have a valid memory map */
     if(!(mbd->flags >> 6 & 0x1)) {
-        printf("invalid memory map given by GRUB bootloader");
+        printf("invalid memory map given by GRUB bootloader\n");
+        qemu_printf("invalid memory map given by GRUB bootloader\n");
     }
- 
+    printf("Total Memory from BIOS is as follows: \n");
+    printf("Lower: %x | Higher: %x | Total: %x \n", mbd->mem_lower, mbd->mem_upper, 1024 + mbd->mem_lower + (mbd->mem_upper * 64));
     /* Loop through the memory map and display the values */
     int i;
     for(i = 0; i < mbd->mmap_length; 
@@ -42,41 +45,26 @@ void print_memory_map(multiboot_info_t* mbd, uint32_t magic)
 
 int main(multiboot_info_t* mbd, uint32_t magic)
 {
+    // COM1
+    if(init_serial())
+        qemu_printf("Serial Init                \033[0;32m[OK]\033[0;37m\n");
     clear_screen();
-
-    // print_memory_map(mbd, magic);
-
-    // printf("Hello World!!!\n");
-
     init_gdt();
+    qemu_printf("GDT Init                   \033[0;32m[OK]\033[0;37m\n");
     initialize_isr();
-    
-    
+    qemu_printf("ISR init                   \033[0;32m[OK]\033[0;37m\n");
+
     asm volatile("sti");
     init_timer(1000);
-
+    qemu_printf("Timer Init                 \033[0;32m[OK]\033[0;37m\n");
     init_keyboard();
+    qemu_printf("Keyboard Init              \033[0;32m[OK]\033[0;37m\n");
+
+    print_memory_map(mbd, magic);    
 
 
-    // Set and Unset bits
-    // int i = 0x0000;
-    // print_binary(i);
-    // printf("\n");
-    // i = setBit(i, 13);
-    // print_binary(i);
-    // printf("\n");
-    // i = unsetBit(i, 13);
-    // print_binary(i);
-    // printf("\n");
-
-    // init_paging();
-
-
-    // printf("Paging Enabled???\n");
-    // Test timer
-    // test_timer();
-
-    // Test speaker
-    // test_speaker(1000);
+    // change_color(WHITE);
+    // change_background_color(GREEN);
+    // boot_screen();
 
 }

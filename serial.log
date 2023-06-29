@@ -1,0 +1,5 @@
+Serial Init                [0;32m[OK][0;37m
+GDT Init                   [0;32m[OK][0;37m
+ISR init                   [0;32m[OK][0;37m
+Timer Init                 [0;32m[OK][0;37m
+Keyboard Init              [0;32m[OK][0;37m

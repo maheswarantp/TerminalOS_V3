@@ -4,6 +4,9 @@
 // Multiboot
 #include <multiboot.h>
 
+// COM1 
+#include <drivers/serial.h>
+
 // VGA BUFFER
 #include <drivers/screen.h>
 
@@ -34,10 +37,14 @@
 
 
 // Paging
+#include <mem/pmm.h>
 #include <mem/paging.h>
 
 // Tests
 #include <tests/test_timer.h>
 #include <tests/test_speaker.h>
+
+// Visuals
+#include <utils/visuals.h>
 
 #endif

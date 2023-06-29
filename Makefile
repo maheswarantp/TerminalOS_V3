@@ -33,7 +33,9 @@ update_disk: kernel.elf
 	bash ./updatedisk.sh
 
 run: update_disk
-	qemu-system-i386 -hda disk.img -soundhw pcspk -m 10
+	qemu-system-i386 -hda disk.img -soundhw pcspk -chardev stdio,id=char0,logfile=serial.log,signal=off \
+	-serial chardev:char0
+
 
 all: run FORCE
 
@@ -47,4 +49,4 @@ debug: FORCE
 
 
 clean:
-	rm -rf *.o */*.o */*/*.o */*/*/*.o build/*
+	rm -rf *.o */*.o */*/*.o */*/*/*.o build/* *.log
