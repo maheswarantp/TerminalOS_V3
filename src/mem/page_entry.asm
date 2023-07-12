@@ -9,8 +9,6 @@ loadPageDirectory:
     pop ebp
     ret
 
-
-
 global enablePaging
 enablePaging:
     push ebp

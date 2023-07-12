@@ -3,3 +3,15 @@ GDT Init                   [0;32m[OK][0;37m
 ISR init                   [0;32m[OK][0;37m
 Timer Init                 [0;32m[OK][0;37m
 Keyboard Init              [0;32m[OK][0;37m
++
++
++
++
+Total Memory from BIOS is as follows: 
+Lower: 0x27F | Higher: 0x1FB80 | Total: 0x7EE67F 
+Start Addr: 0x | Length: 0x | Size: 0x9FC00 | Type: [0;32m AVAILABLE [0;37m 
+Start Addr: 0x9FC00 | Length: 0x | Size: 0x400 | Type: [0;33m RESERVED [0;37m 
+Start Addr: 0xF0000 | Length: 0x | Size: 0x10000 | Type: [0;33m RESERVED [0;37m 
+Start Addr: 0x100000 | Length: 0x | Size: 0x7EE0000 | Type: [0;32m AVAILABLE [0;37m 
+Start Addr: 0x7FE0000 | Length: 0x | Size: 0x20000 | Type: [0;33m RESERVED [0;37m 
+Start Addr: 0x,0000 | Length: 0x | Size: 0x40000 | Type: [0;33m RESERVED [0;37m 

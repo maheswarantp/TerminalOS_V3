@@ -102,6 +102,7 @@ void printf(const char *str, ...)
         {
             rows++;
             cols=0;
+            update_cursor((rows * 80 + cols));
         } else if (rows >= 25)
         {
             clear_screen();

@@ -33,8 +33,53 @@ void write_serial(uint8_t* a)
     outb(COM1, *a);
 }
 
-void qemu_printf(uint8_t* string)
+void qemu_printf(uint8_t* string, ...)
 {
+
+
+    int varNum = 0;
     for(int i = 0; string[i] != '\0'; i++)
-        write_serial(string + i);
+    {
+        if(string[i] == '%' && string[i+1] == 'x')
+            varNum++;
+    }
+
+    va_list valist;
+
+    va_start(valist, varNum);   
+
+    for(int i = 0; string[i] != '\0'; i++)
+    {
+        if(string[i] != '%')
+            write_serial(string + i);
+        else {
+            uint8_t* s;
+            switch(string[i+1])
+            {
+                case 'd':
+                    itoa(s, va_arg(valist, int), 10);
+                    qemu_printf(s);
+                    qemu_printf("D");
+                    i++;
+                    break;
+                case 'x':
+                    itoa(s, va_arg(valist, int), 16);
+                    qemu_printf("0");
+                    qemu_printf("x");
+                    qemu_printf(s);
+                    i++;
+                    break;
+                case 'b':                                       // TO BE FIXED
+                    itoa(s, va_arg(valist, int), 2);
+                    qemu_printf("0");
+                    qemu_printf("b");
+                    qemu_printf(s);
+                    i++;
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+        // write_serial(string + i);
 }

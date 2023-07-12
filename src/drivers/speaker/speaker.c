@@ -26,8 +26,4 @@ void beep(uint32_t timeMilliSeconds)
     play_sound(1000);
     sleep(timeMilliSeconds);
     stop_sound();
-
-    play_sound(2000);
-    sleep(timeMilliSeconds);
-    stop_sound();
 }
